@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Zach Witonsky.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -103,7 +103,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -111,6 +111,23 @@ def problem2a(circle, rectangle, window):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    line = rg.Line(rectangle.get_upper_right_corner(), rectangle.get_lower_left_corner())
+    line.attach_to(window)
+
+    window.render()
+    window.continue_on_mouse_click()
+
+    circle.fill_color = 'blue'
+    circle.attach_to(window)
+
+    window.render()
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
@@ -174,14 +191,42 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
-    # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
-    # -------------------------------------------------------------------------
+    # -----------------------------    # ---------------------------------------------------------------------------------------------------------------------
+
+    rect.attach_to(win)
+    win.render()
+    win.continue_on_mouse_click()
+
+    if rect.fill_color == 'blue':
+        for k in range(1,n):
+            rect1 = rg.Rectangle(rg.Point(rect.corner_1.x - (delta*k), rect.corner_1.y - (delta*k)),rg.Point(rect.corner_2.x + (delta*k), rect.corner_2.y + (delta*k)))
+
+            rect1.attach_to(win)
+            win.render()
+            win.continue_on_mouse_click()
+
+    if rect.fill_color == 'green':
+        for k in range(1,n):
+            rect1 = rg.Rectangle(rg.Point(rect.corner_1.x + (delta*k), rect.corner_1.y + (delta*k)),rg.Point(rect.corner_2.x - (delta*k), rect.corner_2.y - (delta*k)))
+
+            rect1.attach_to(win)
+            win.render()
+            win.continue_on_mouse_click()
+
+    if rect.fill_color == 'red':
+        for k in range(1,n):
+            rect1 = rg.Rectangle(rg.Point(rect.corner_1.x + (delta*k), rect.corner_1.y - (delta*k)),rg.Point(rect.corner_2.x - (delta*k), rect.corner_2.y + (delta*k)))
+
+            rect1.attach_to(win)
+            win.render()
+            win.continue_on_mouse_click()
+
 
 
 # -----------------------------------------------------------------------------

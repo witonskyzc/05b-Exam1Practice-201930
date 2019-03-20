@@ -71,6 +71,8 @@ import turtle
 # as their common root.  The first construction of a RoseWindow
 # sets this  _master_Tk to a Tkinter.Tk object.
 # ----------------------------------------------------------------------
+from typing import Union
+
 _master_Tk = None
 
 
@@ -608,6 +610,7 @@ class _ShapeWithThickness(object):
     Public data attributes:  color, thickness.
     Public methods:  _initialize_options.
     """
+    arrow: Union[str, int, None]
     defaults = {'color': 'black',
                 'thickness': 1,
                 'arrow': None}
