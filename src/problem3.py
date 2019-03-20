@@ -162,6 +162,7 @@ def problem3a(window, point, n):
 
     thickness = 0
     for k in range(n):
+
         line = rg.Line(rg.Point(point.x+20*k,point.y+10*k),rg.Point(point.x+20*k,point.y+50+10*k))
         if k < 7:
             line.thickness = 1 + k*2
